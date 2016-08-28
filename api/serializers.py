@@ -33,3 +33,16 @@ class PropertySerializer(serializers.ModelSerializer):
         return models.Province.objects.filter(
             x_u__lte=x, x_b__gte=x,
             y_u__gte=y, y_b__lte=y)
+
+
+class ProvinceSerializer(serializers.ModelSerializer):
+    xUp = serializers.IntegerField(source='x_u')
+    yUp = serializers.IntegerField(source='y_u')
+    xBottom = serializers.IntegerField(source='x_b')
+    yBottom = serializers.IntegerField(source='y_b')
+
+    class Meta:
+        model = models.Province
+        fields = ('id', 'name',
+                  'xUp', 'yUp',
+                  'xBottom', 'yBottom')

@@ -160,3 +160,22 @@ class PropertyTestCase(TestCase):
             'baths': 3,
             'squareMeters': 100,
         }
+
+
+class ProvinceTestCase(TestCase):
+
+    def test_serializer_has_fields(self):
+        prov = factories.ProvinceFactory()
+        serializer = serializers.ProvinceSerializer(prov)
+
+        expected_fields = {
+            'id',
+            'name',
+            'xUp',
+            'yUp',
+            'xBottom',
+            'yBottom',
+        }
+
+        fields = set(dict(serializer.data).keys())
+        self.assertEqual(fields, expected_fields)
