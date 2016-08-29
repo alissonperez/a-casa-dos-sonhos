@@ -14,10 +14,10 @@
   - [X] Max 240 e min 20 mts.
   - [X] X e Y duplicados (ja adicionado no model).
 - [X] Criar comando para baixar os jsons e criar os itens no banco.
-- [-] Views
+- [X] Views
   - [X] Provincias
-  - [ ] Propriedades.
-    - [ ] Listagem com busca.
-    - [ ] Adicao.
-    - [ ] Leitura (local especifico).
+  - [X] Propriedades.
+    - [X] Listagem com busca.
+    - [X] Adicao.
+    - [X] Leitura (local especifico).
 - [ ] Enxugar settings
