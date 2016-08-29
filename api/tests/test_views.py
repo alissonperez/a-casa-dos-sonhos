@@ -89,3 +89,10 @@ class PropertiesTestCase(TestCase):
         self.assertEqual(response.status_code, 201)
 
         self.assertEqual(models.Property.objects.all().count(), 1)
+
+    def test_property_delete_must_not_be_enabled(self):
+        prop = factories.PropertyFactory(x=1, y=10)
+        url = reverse('property-detail', args=[prop.id])
+
+        response = self.client.delete(url)
+        self.assertEqual(response.status_code, 405)

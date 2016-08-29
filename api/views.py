@@ -1,4 +1,4 @@
-from rest_framework import viewsets
+from rest_framework import viewsets, exceptions
 from api import serializers
 from realty import models
 
@@ -24,3 +24,6 @@ class PropertyViewSet(viewsets.ModelViewSet):
                 y__gte=p['by'], y__lte=p['ay'])
 
         return queryset
+
+    def destroy(self, *args, **kwargs):
+        raise exceptions.MethodNotAllowed('DELETE')
