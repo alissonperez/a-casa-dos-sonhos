@@ -22,3 +22,6 @@ class Property(models.Model):
     beds = models.IntegerField()
     baths = models.IntegerField()
     square_meters = models.IntegerField()
+
+    class Meta:
+        index_together = (('x', 'y'),)
