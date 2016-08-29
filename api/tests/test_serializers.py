@@ -28,6 +28,12 @@ class PropertyTestCase(TestCase):
         fields = set(dict(serializer.data).keys())
         self.assertEqual(fields, expected_fields)
 
+    def test_serializer_has_correct_price(self):
+        prop = factories.PropertyFactory(price=12000.00)
+        serializer = serializers.PropertySerializer(prop)
+
+        self.assertEqual(serializer.data['price'], 12000.00)
+
     def test_serializer_has_correct_province(self):
         prov = factories.ProvinceFactory()
         prop = factories.PropertyFactory(x=prov.x_u+10,
